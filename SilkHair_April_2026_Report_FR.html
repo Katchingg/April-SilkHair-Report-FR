@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SilkHair — Rapport mensuel Google Ads — Avril 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; color: #1a1a1a; background: #f5f4f0; }
+  .page { max-width: 960px; margin: 0 auto; padding: 40px 32px; }
+
+  /* Brand colors from logo */
+  :root {
+    --blue: #0085F7;
+    --blue-light: #E6F2FF;
+    --green: #138D5A;
+    --green-light: #E6F5EE;
+    --amber: #F8B83A;
+    --amber-light: #FEF6E6;
+    --dark: #0F1923;
+  }
+
+  /* Cover */
+  .cover { background: var(--dark); color: #fff; border-radius: 12px; padding: 48px 48px 40px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue) 0%, var(--green) 50%, var(--amber) 100%); }
+  .cover-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .cover-logo-circles { width: 36px; height: 36px; position: relative; }
+  .cover-logo-circles .c1 { position: absolute; width: 36px; height: 36px; border-radius: 50%; border: 5px solid var(--blue); border-bottom-color: transparent; transform: rotate(-30deg); }
+  .cover-logo-circles .c2 { position: absolute; width: 24px; height: 24px; top: 6px; left: 6px; border-radius: 50%; border: 4px solid var(--green); border-top-color: transparent; transform: rotate(30deg); }
+  .cover-logo-circles .c3 { position: absolute; width: 12px; height: 12px; top: 12px; left: 12px; border-radius: 50%; background: var(--amber); }
+  .cover-logo-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.5px; }
+  .cover-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .cover h1 { font-size: 34px; font-weight: 700; margin-bottom: 6px; }
+  .cover-sub { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 36px; }
+  .cover-meta { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+  .cover-meta-item { padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.08); }
+  .cover-meta-item:last-child { border-right: none; }
+  .cover-meta-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+  .cover-meta-item .value { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
+  .cover-meta { background: rgba(255,255,255,0.05); border-radius: 8px; margin-top: 0; }
+
+  /* Section */
+  .section { background: #fff; border-radius: 12px; padding: 32px; margin-bottom: 24px; border: 0.5px solid #e5e3dd; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #f0ede8; }
+  .section-number { width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .section-title { font-size: 18px; font-weight: 700; color: var(--dark); }
+
+  /* Metric cards */
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .metric-card { background: #f8f7f4; border-radius: 8px; padding: 16px; border-top: 3px solid var(--blue); }
+  .metric-card.green { border-top-color: var(--green); }
+  .metric-card.amber { border-top-color: var(--amber); }
+  .metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #999; margin-bottom: 6px; font-weight: 600; }
+  .metric-value { font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1; margin-bottom: 5px; }
+  .metric-change { font-size: 12px; font-weight: 500; }
+  .up { color: var(--green); }
+  .down { color: #c0392b; }
+  .neutral { color: #999; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 14px; background: #f8f7f4; color: #666; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 2px solid #ede9e3; }
+  td { padding: 10px 14px; border-bottom: 0.5px solid #f0ede8; color: #1a1a1a; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #faf9f7; }
+  .td-right { text-align: right; }
+  .td-center { text-align: center; }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-red { background: #fdf0ee; color: #c0392b; }
+  .badge-amber { background: var(--amber-light); color: #9a6800; }
+  .badge-blue { background: var(--blue-light); color: var(--blue); }
+  .badge-gray { background: #f3f2f0; color: #666; }
+
+  /* Charts */
+  .chart-wrap { position: relative; width: 100%; margin: 20px 0; }
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 10px; font-size: 12px; color: #666; }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  /* Highlights */
+  .highlight { border-radius: 0 8px 8px 0; padding: 14px 16px; margin: 14px 0; font-size: 13px; }
+  .highlight.info { background: var(--blue-light); border-left: 3px solid var(--blue); color: #0a3d80; }
+  .highlight.success { background: var(--green-light); border-left: 3px solid var(--green); color: #0a4a2a; }
+  .highlight.warning { background: var(--amber-light); border-left: 3px solid var(--amber); color: #6b3f00; }
+  .highlight.danger { background: #fdf0ee; border-left: 3px solid #c0392b; color: #6b1a1a; }
+
+  /* Subsections */
+  .subsection { margin-bottom: 28px; }
+  .subsection-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 0.5px solid #ede9e3; display: flex; align-items: center; gap: 8px; }
+  .subsection-title::before { content: ''; width: 4px; height: 16px; background: var(--blue); border-radius: 2px; flex-shrink: 0; }
+
+  /* Action items */
+  .action-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 0.5px solid #f0ede8; align-items: flex-start; }
+  .action-item:last-child { border-bottom: none; }
+  .action-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--dark); }
+  .action-desc { font-size: 12px; color: #555; line-height: 1.6; }
+
+  /* Creative rows */
+  .creative-row { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 12px; padding: 12px 14px; border-bottom: 0.5px solid #f0ede8; font-size: 12px; align-items: start; }
+  .creative-row.header { background: #f8f7f4; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #888; border-radius: 6px 6px 0 0; }
+
+  /* Footer */
+  .report-footer { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; margin-top: 8px; border-top: 1px solid #ede9e3; }
+  .footer-brand { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #aaa; }
+  .footer-page { font-size: 12px; color: #ccc; }
+  .color-bar { height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--blue) 0%, var(--green) 50%, var(--amber) 100%); margin-bottom: 32px; border-radius: 4px; }
+
+  /* ============================================================
+     MOBILE RESPONSIVE
+     ============================================================ */
+  @media (max-width: 768px) {
+
+    /* Page padding */
+    .page { padding: 16px 12px; }
+
+    /* Cover */
+    .cover { padding: 28px 20px 24px; border-radius: 8px; }
+    .cover h1 { font-size: 22px; }
+    .cover-sub { font-size: 13px; margin-bottom: 20px; }
+    .cover-meta { grid-template-columns: 1fr 1fr; }
+    .cover-meta-item { padding: 10px 12px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cover-meta-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+    .cover-meta-item:last-child { border-bottom: none; grid-column: span 2; }
+
+    /* Sections */
+    .section { padding: 20px 16px; border-radius: 8px; margin-bottom: 16px; }
+    .section-title { font-size: 15px; }
+
+    /* Metric cards - 2 per row on mobile */
+    .metrics-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .metric-value { font-size: 18px !important; }
+    .metric-label { font-size: 10px; }
+
+    /* Tables - make scrollable */
+    table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; font-size: 12px; }
+    th { padding: 8px 10px; font-size: 10px; }
+    td { padding: 8px 10px; }
+
+    /* Two col */
+    .two-col { grid-template-columns: 1fr; }
+
+    /* Chart */
+    .chart-wrap { height: 200px !important; }
+
+    /* Creative rows */
+    .creative-row { grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11px; }
+    .creative-row.header { display: none; }
+
+    /* Highlights */
+    .highlight { font-size: 12px; padding: 12px 14px; }
+    .highlight ul { padding-left: 16px; }
+    .highlight li { margin-bottom: 8px !important; }
+
+    /* Subsection title */
+    .subsection-title { font-size: 13px; }
+
+    /* Action items */
+    .action-item { flex-direction: column; gap: 8px; }
+
+    /* Color bar */
+    .color-bar { margin-bottom: 16px; }
+
+    /* Footer */
+    .report-footer { flex-direction: column; gap: 8px; text-align: center; }
+
+    /* Thank you page */
+    .section[style*="text-align:center"] { padding: 32px 20px; }
+
+    /* Cover meta grid for very small screens */
+  }
+
+  @media (max-width: 480px) {
+    .cover h1 { font-size: 18px; }
+    .cover-meta { grid-template-columns: 1fr; }
+    .cover-meta-item { border-right: none !important; grid-column: auto !important; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .metric-value { font-size: 16px !important; }
+    .section-number { width: 26px; height: 26px; font-size: 11px; }
+    .section-title { font-size: 14px; }
+    .badge { font-size: 10px; padding: 2px 6px; }
+  }
+
+</style>
+</head>
+<body>
+<div class="page">
+<!-- COLOR BAR -->
+<div class="color-bar"></div>
+<!-- COVER -->
+<div class="cover">
+<div class="cover-logo">
+<div class="cover-logo-circles">
+<div class="c1"></div>
+<div class="c2"></div>
+<div class="c3"></div>
+</div>
+<div class="cover-logo-name">Katchingg Media — Google Ads pour eCom</div>
+</div>
+<div class="cover-label">Rapport mensuel de performance</div>
+<h1>SilkHair — Google Ads</h1>
+<div class="cover-sub">Avril 2026 vs. Mars 2026</div>
+<div class="cover-meta">
+<div class="cover-meta-item"><div class="label">Compte</div><div class="value">SilkHair EUR (IDR)</div></div>
+<div class="cover-meta-item"><div class="label">Période</div><div class="value">1–30 avril 2026</div></div>
+<div class="cover-meta-item"><div class="label">Comparé à</div><div class="value">1–31 mars 2026</div></div>
+<div class="cover-meta-item"><div class="label">Préparé par</div><div class="value">Diana, Katchingg</div></div>
+<div class="cover-meta-item"><div class="label">Marché</div><div class="value">France (FR)</div></div>
+</div>
+</div>
+<!-- 1. ACCOUNT OVERVIEW -->
+<div class="section">
+<div class="section-header"><div class="section-number">1</div><div class="section-title">Vue d’ensemble du compte</div></div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses totales</div><div class="metric-value">IDR 216.6M</div><div class="metric-change up">▲ +10.3% vs Mars</div></div>
+<div class="metric-card green"><div class="metric-label">Conv. Value</div><div class="metric-value">IDR 849M</div><div class="metric-change up">▲ +17.2% vs Mars</div></div>
+<div class="metric-card green"><div class="metric-label">Account ROAS</div><div class="metric-value">3.92x</div><div class="metric-change up">▲ +6.3% (était 3.69x)</div></div>
+<div class="metric-card green"><div class="metric-label">Conversions</div><div class="metric-value">957</div><div class="metric-change up">▲ +18.0% (était 812)</div></div>
+<div class="metric-card blue"><div class="metric-label">Clicks</div><div class="metric-value">25,264</div><div class="metric-change up">▲ +5.1% vs Mars</div></div>
+<div class="metric-card amber"><div class="metric-label">Impressions</div><div class="metric-value">893,568</div><div class="metric-change down">▼ -7.9% vs Mars</div></div>
+</div>
+<p style="font-size:11px;color:#aaa;margin-bottom:16px;">* NB Shopping Expansion a été lancée le 25 mars — la comparaison MoM du Cost/Conv n’est pas significative, car mars ne contient que 5 jours de données.</p>
+<div class="highlight success">Très bon mois d’avril dans l’ensemble — les dépenses ont augmenté de 10.3% tandis que le ROAS s’est amélioré à 3.92x et les conversions ont progressé de 18%. La croissance des revenus dépasse la croissance des dépenses, ce qui va dans la bonne direction.</div>
+<div class="subsection" style="margin-top:24px;">
+<div class="subsection-title">Revenus Shopify par produit</div>
+<table>
+<thead><tr><th>Produit</th><th class="td-right">Revenus</th><th class="td-right">vs. période précédente</th><th class="td-center">Tendance</th></tr></thead>
+<tbody>
+<tr><td><strong>Batana+® Boosteur de Croissance</strong></td><td class="td-right">€51.7k</td><td class="td-right" style="color:#c0392b;">-10%</td><td class="td-center"><span class="badge badge-red">▼ En baisse</span></td></tr>
+<tr><td>Sérum Batana+ Renaissance (100ml)</td><td class="td-right">€6.6k</td><td class="td-right" style="color:#138D5A;">+31%</td><td class="td-center"><span class="badge badge-green">▲ En croissance</span></td></tr>
+<tr><td>Box Surprise Repousse Intense</td><td class="td-right">€6.5k</td><td class="td-right" style="color:#c0392b;">-14%</td><td class="td-center"><span class="badge badge-red">▼ En baisse</span></td></tr>
+<tr><td>Coffret Accélérateur de Pousse</td><td class="td-right">€3.8k</td><td class="td-right" style="color:#9a6800;">-5%</td><td class="td-center"><span class="badge badge-amber">▼ Léger recul</span></td></tr>
+<tr><td>Sérum Batana+</td><td class="td-right">€2.3k</td><td class="td-right" style="color:#138D5A;">+18%</td><td class="td-center"><span class="badge badge-green">▲ En croissance</span></td></tr>
+</tbody>
+</table>
+<div class="highlight warning">Batana+ est le produit hero, mais il est en baisse de 10%. Sérum Batana+ Renaissance progresse de +31% et mérite un investissement dédié en mai.</div>
+</div>
+</div>
+<!-- 2. PERFORMANCE BY CAMPAIGN -->
+<div class="section">
+<div class="section-header"><div class="section-number">2</div><div class="section-title">Performance par campagne — Avril vs. Mars</div></div>
+<table>
+<thead><tr><th>Campagne</th><th>Type</th><th class="td-right">Dépenses (IDR)</th><th class="td-right">ROAS</th><th class="td-right">Conv.</th><th class="td-right">Cost/Conv.</th></tr></thead>
+<tbody>
+<tr><td><strong>FR Brand Shopping</strong></td><td>Shopping</td><td class="td-right">8.7M <small style="color:#138D5A;">▲+27%</small></td><td class="td-right" style="color:#138D5A;font-weight:700;">31.48x ▲+59%</td><td class="td-right" style="color:#138D5A;">316 ▲+91%</td><td class="td-right" style="color:#138D5A;font-weight:600;">IDR 27,655 ▼-33.68%</td></tr>
+<tr><td><strong>FR Brand Search</strong></td><td>Search</td><td class="td-right">14.5M <small style="color:#c0392b;">▼-14%</small></td><td class="td-right" style="color:#138D5A;font-weight:700;">15.69x ▲+13%</td><td class="td-right" style="color:#c0392b;">209 ▼-11%</td><td class="td-right" style="color:#138D5A;font-weight:600;">IDR 69,127 ▼-4.10%</td></tr>
+<tr><td><strong>FR NB Search — Huile de Batana</strong></td><td>Search</td><td class="td-right">87M <small style="color:#138D5A;">▲+7%</small></td><td class="td-right" style="color:#9a6800;font-weight:700;">1.72x ▼-4.97%</td><td class="td-right" style="color:#138D5A;">178 ▲+7%</td><td class="td-right" style="color:#138D5A;font-weight:600;">IDR 487,478 ▼-0.03%</td></tr>
+<tr><td><strong>FR NB Shopping — Produits</strong></td><td>Shopping</td><td class="td-right">60.8M <small style="color:#138D5A;">▲+4%</small></td><td class="td-right" style="color:#138D5A;font-weight:700;">1.41x ▲+2%</td><td class="td-right" style="color:#138D5A;">113 ▲+3%</td><td class="td-right" style="color:#c0392b;font-weight:600;">IDR 540,355 ▲+1.26%</td></tr>
+<tr><td><strong>NB Shopping — Expansion</strong></td><td>Shopping</td><td class="td-right">15.2M <small style="color:#138D5A;">▲+334%</small></td><td class="td-right" style="color:#c0392b;font-weight:700;">1.22x ▼-50.41%</td><td class="td-right" style="color:#138D5A;">22.12 ▲+212.02%</td><td class="td-right" style="color:#c0392b;font-weight:600;">IDR 687,137 *</td></tr>
+<tr><td><strong>Silkhair DGen FR</strong></td><td>Demand Gen</td><td class="td-right">30.4M <small style="color:#138D5A;">▲+3%</small></td><td class="td-right" style="color:#c0392b;font-weight:700;">3.14x ▼-21%</td><td class="td-right" style="color:#c0392b;">119 ▼-8%</td><td class="td-right" style="color:#c0392b;font-weight:600;">IDR 254,764 ▲+12.04%</td></tr>
+</tbody>
+</table>
+<div style="margin-top:20px;">
+<div class="chart-legend">
+<span class="legend-item"><span class="legend-dot" style="background:var(--blue);"></span>Avril 2026 — Conv. Value (IDR M)</span>
+<span class="legend-item"><span class="legend-dot" style="background:#c8c6be;"></span>Mars 2026 — Conv. Value (IDR M)</span>
+</div>
+<div class="chart-wrap" style="height:260px;">
+<canvas aria-label="Revenus par campagne Avril vs Mars 2026" id="roasChart" role="img">Comparaison des revenus par campagne : Brand Shopping IDR 275M vs 136M, Brand Search IDR 227M vs 235M, NB Search IDR 148M vs 147M, NB Shopping IDR 86M vs 81M, Expansion IDR 15M vs 9M, DGen IDR 96M vs 117M.</canvas>
+</div>
+</div>
+</div>
+<!-- 3. CAMPAIGN DEEP DIVES -->
+<div class="section">
+<div class="section-header"><div class="section-number">3</div><div class="section-title">Analyse détaillée des campagnes</div></div>
+<div class="subsection">
+<div class="subsection-title">3.1  FR Brand Shopping — Produits</div>
+<div class="metrics-grid">
+<div class="metric-card green"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">IDR 8.7M</div><div class="metric-change up">▲ +27%</div></div>
+<div class="metric-card green"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">31.48x</div><div class="metric-change up">▲ +59%</div></div>
+<div class="metric-card green"><div class="metric-label">Conversions</div><div class="metric-value" style="font-size:18px;">316</div><div class="metric-change up">▲ +91%</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:8px;">Campagne la plus performante. Le ROAS a doublé vs la période précédente, porté par une forte performance mobile (2,936 clics, ROAS 30.64). Le top SKU — la variante hero Batana+ — a généré 187 conversions avec un ROAS de 38.52. Fonctionne en Manual CPC à IDR 600k/jour, sans contrainte de budget.</p>
+<div class="highlight success">Campagne la plus performante du compte. Le ROAS a plus que doublé vs mars grâce à une forte performance mobile. Le hero SKU — Batana+ — a généré 187 conversions avec un ROAS de 38.52x.</div>
+</div>
+<div class="subsection">
+<div class="subsection-title">3.2  FR Brand Search</div>
+<div class="metrics-grid">
+<div class="metric-card green"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">IDR 14.5M</div><div class="metric-change down">▼ -14%</div></div>
+<div class="metric-card green"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">15.69x</div><div class="metric-change up">▲ +13%</div></div>
+<div class="metric-card amber"><div class="metric-label">Conversions</div><div class="metric-value" style="font-size:18px;">209</div><div class="metric-change down">▼ -11%</div></div>
+<div class="metric-card blue"><div class="metric-label">Search IS</div><div class="metric-value" style="font-size:18px;">95.75%</div><div class="metric-change neutral">Stable</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:8px;">Efficace (ROAS 15.69x, cost/conv IDR 69k) mais en perte de volume — clics -21%, conversions -11%. La campagne dépense moins chaque mois malgré un budget de IDR 1M/jour. Keywords : [silkhair] exact (923 clics, ROAS 21.67) et "silkhair" phrase (541 clics, ROAS 9.92). Seul concurrent : kairly-paris.com avec &lt;10% IS.</p>
+<div class="highlight success">La domination Brand est solide — 95.75% Search IS et quasiment aucune menace concurrentielle. Notre campagne Brand délivre une excellente efficacité avec un ROAS en amélioration à 15.69x et un cost/conv en amélioration de -4.10% vs mars.</div>
+<div class="highlight warning"><strong>Contexte de volume :</strong> Les clics sont en baisse de -21% et les impressions de -25%, tandis que la Search IS reste stable à 95.75%. Cela indique que la baisse est liée à une demande de recherche plus faible sur cette période. Comme nous capturons déjà 95.75% des recherches disponibles, l’objectif est d’améliorer le CTR et la qualité des ads. Deux actions pour mai :
+        <ul style="margin-top:8px;margin-left:20px;font-size:13px;">
+<li style="margin-bottom:6px;"><strong>Ajouter de nouvelles variations RSA</strong> — nouvelles combinaisons de headlines et descriptions pour améliorer le CTR et capter plus de valeur depuis le volume de recherche existant.</li>
+<li style="margin-bottom:0px;"><strong>Optimiser les sitelinks existants</strong> — les meilleurs performers sont Coffret Pousse Rapide (CTR 29.58%, ROAS 17.41x) et Résultats &amp; Avis (CTR 30.13%, ROAS 14.93x). Après-Shampoing et Livraison Rapide sous-performent avec un ROAS inférieur à 6x — nous allons les revoir et envisager de les remplacer par des alternatives à plus forte intention, comme une landing page Batana+ Oil dédiée ou un sitelink "Routine Complète". Shampoing montre une croissance (+47.27% de clics) et doit être conservé et surveillé.</li>
+</ul>
+</div>
+</div>
+<div class="subsection">
+<div class="subsection-title">3.3  FR NB Search — Huile de Batana</div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">IDR 87M</div><div class="metric-change up">▲ +7%</div></div>
+<div class="metric-card amber"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">1.72x</div><div class="metric-change down">▼ -4.97%</div></div>
+<div class="metric-card green"><div class="metric-label">Conversions</div><div class="metric-value" style="font-size:18px;">178</div><div class="metric-change up">▲ +7%</div></div>
+<div class="metric-card amber"><div class="metric-label">Search IS</div><div class="metric-value" style="font-size:18px;">71.41%</div><div class="metric-change down">▼ -11%</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:8px;">Campagne avec les dépenses les plus élevées. Max Conv Value tROAS 180%. Deux keywords : [huile de batana] exact (2,716 clics, ROAS 1.72, IS 77%) et "huile de batana" phrase (647 clics, ROAS 1.64, IS 56%). La Search IS a chuté de 80% à 71%. Top terms : "batana" (383 clics, 35 conv, ROAS 2.44), "serum batana" (5 clics, 3 conv, ROAS 14.14).</p>
+<div class="highlight info"><strong>Opportunité — récupérer la Search IS face à Amazon en mai.</strong> Amazon.fr détient actuellement 22.24% d’impression share sur les recherches huile de batana et outrank SilkHair 70.65% du temps. Trois actions ciblées vont adresser cela :
+        <ul style="margin-top:8px;margin-left:20px;font-size:13px;">
+<li style="margin-bottom:8px;"><strong>Augmentation du budget :</strong> Recommandation d’augmenter de IDR 3.3M/jour à IDR 4.5–5M/jour (+35–50%). Notre campagne NB Search dépense tout son budget quotidiennement — chaque rupiah supplémentaire convertit au ROAS actuel de 1.72x.</li>
+<li style="margin-bottom:8px;"><strong>Ajustement du tROAS :</strong> Baisser temporairement de 180% à 150% pour permettre un bidding plus compétitif. Cela donne à l’algorithme plus de marge pour surenchérir face à Amazon sur les termes clés. Nous surveillerons pendant 2–3 semaines puis réévaluerons.</li>
+<li style="margin-bottom:0px;"><strong>Expansion des keywords :</strong> Seuls 2 keywords sont actifs. Ajouter : [batana oil cheveux], [huile batana repousse], [batana sérum cheveux], [sérum batana], [huile de batana pour cheveux crépus], [huile de batana avis] en exact match. "Serum batana" montre déjà 5 clics, 3 conversions, ROAS 14.14x dans le search terms report.</li>
+</ul>
+</div>
+<div style="margin-top:14px;">
+<div class="subsection-title" style="font-size:13px;">Travail SQR terminé — 21 avril</div>
+<table>
+<thead><tr><th>Action</th><th>Keywords</th><th>Raison</th></tr></thead>
+<tbody>
+<tr><td>Negatives ajoutés (phrase)</td><td>-"bio", -"batana kara", -"olcg", -"parc afro", -"wells oil"</td><td>Variantes concurrentes et non pertinentes</td></tr>
+<tr><td>Negatives ajoutés (exact)</td><td>-[batana oil in french]</td><td>Requête en anglais non pertinente pour le ciblage du marché français</td></tr>
+<tr><td>Optimisation des ads</td><td>Pinned H1: "Huile de Batana 100% Pure", H2: "1 Acheté = 1 Offert"</td><td>Améliorer le CTR et la pertinence</td></tr>
+<tr><td>Rafraîchissement de la marque (22 avril)</td><td>Nouveau logo d’entreprise + headlines rafraîchis</td><td>Crédibilité de la marque et ad strength</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="subsection">
+<div class="subsection-title">3.4  FR NB Shopping — Produits</div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">IDR 60.8M</div><div class="metric-change up">▲ +4%</div></div>
+<div class="metric-card amber"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">1.41x</div><div class="metric-change up">▲ +2%</div></div>
+<div class="metric-card green"><div class="metric-label">Conversions</div><div class="metric-value" style="font-size:18px;">113</div><div class="metric-change up">▲ +3%</div></div>
+<div class="metric-card green"><div class="metric-label">Search IS</div><div class="metric-value" style="font-size:18px;">37.56%</div><div class="metric-change up">▲ was 19.45%</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:8px;">Campagne stable avec une base solide. Un SKU actif génère toutes les conversions (Batana+ à ROAS 1.41x). Top search term : "huile de batana avis" (CVR 7.98%, ROAS 5.93x).</p>
+<div class="highlight success">La campagne est stable et le nettoyage SQR a supprimé les dépenses gaspillées sur des termes non pertinents et concurrents. Il reste encore une part de marché importante à capter — c’est une campagne avec une marge de croissance claire. Nous augmenterons le budget de IDR 2M/jour à IDR 2.8M/jour (+40%) en mai. Le ROAS sera suivi chaque semaine et le budget sera augmenté davantage s’il reste au-dessus de 1.30x.</div></div>
+<div class="subsection">
+<div class="subsection-title">3.5  NB Shopping — Expansion (Best Sellers)</div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">IDR 15.2M</div><div class="metric-change up">▲ +334%</div></div>
+<div class="metric-card amber"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">1.22x</div><div class="metric-change down">▼ -50.41%</div></div>
+<div class="metric-card green"><div class="metric-label">Conversions</div><div class="metric-value" style="font-size:18px;">22.12</div><div class="metric-change up">▲ +212.02%</div></div>
+<div class="metric-card amber"><div class="metric-label">Search IS</div><div class="metric-value" style="font-size:18px;">&lt;10%</div><div class="metric-change neutral">Limité</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:10px;">C’est le premier mois complet de données — la campagne a été lancée le 25 mars, donc mars ne contient que 5 jours de données. Les comparaisons month-over-month ne sont pas significatives ici et ne doivent pas être lues comme une tendance. Avril est la baseline. Le ROAS est de 1.22x et le cost/conv est de IDR 687,137 pour le mois. L’hygiène SQR a été terminée le 21 avril : brand negative list appliquée, 12 competitor phrase negatives et 4 exact negatives ajoutés. L’algorithme a eu moins de 2 semaines sur un trafic nettoyé — le jugement doit être réservé jusqu’à mi-mai.</p>
+<p style="font-size:13px;color:#444;margin-bottom:10px;"><strong>Nettoyage SKU — prévu pour mai :</strong> La campagne contient actuellement 9 variantes produit sous un seul item ID alors qu’une seule est nécessaire. Nous allons subdiviser le product group par item ID et exclure les 8 variantes non souhaitées, en gardant uniquement le SKU spécifique que nous voulons promouvoir. C’est un nettoyage rapide et sans risque.</p>
+<p style="font-size:13px;color:#444;margin-bottom:10px;"><strong>SKUs non performants — nous attendrons avant d’ajuster les bids :</strong> Avec seulement un mois de données et des changements SQR faits le 21 avril, l’algorithme a besoin de plus de temps pour se stabiliser sur un trafic propre. Nous n’ajusterons pas les bids des SKUs individuels avant fin mai au plus tôt, puis nous évaluerons selon les données accumulées.</p>
+<p style="font-size:13px;color:#444;margin-bottom:10px;"><strong>SKUs Shopify en croissance — Sérum Batana+ Renaissance (+31%) et Sérum Batana+ (+18%) :</strong> Les deux sont déjà inclus dans cette campagne. Comme nous sommes encore dans le premier mois complet, nous attendrons mi-mai avant toute décision de bid. À ce moment-là, nous évaluerons par SKU — si ces sérums reçoivent des impressions mais ne convertissent pas, nous les subdiviserons dans leur propre product group avec un bid légèrement plus élevé. S’ils ne reçoivent aucune impression, nous vérifierons l’éligibilité du feed.</p>
+<div class="highlight warning">ROAS à 1.22x sur le premier mois complet — aucune décision de pause pour le moment. Attente jusqu’à mi-mai pour laisser l’algorithme se stabiliser sur le trafic nettoyé post-SQR. La décision de pause sera prise fin mai si le ROAS reste sous 1.0x.</div>
+</div>
+<div class="subsection">
+<div class="subsection-title">3.6  Silkhair Demand Gen FR</div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">IDR 30.4M</div><div class="metric-change up">▲ +3.43%</div></div>
+<div class="metric-card amber"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">3.14x</div><div class="metric-change down">▼ -21% vs March</div></div>
+<div class="metric-card amber"><div class="metric-label">Conversions</div><div class="metric-value" style="font-size:18px;">119.37</div><div class="metric-change down">▼ -7.69%</div></div>
+<div class="metric-card amber"><div class="metric-label">Cost/Conv.</div><div class="metric-value" style="font-size:18px;">IDR 254,764</div><div class="metric-change down">▲ +12.04%</div></div>
+<div class="metric-card blue"><div class="metric-label">Clicks</div><div class="metric-value" style="font-size:18px;">13,709</div><div class="metric-change up">▲ +6.79%</div></div>
+<div class="metric-card blue"><div class="metric-label">CTR</div><div class="metric-value" style="font-size:18px;">4.30%</div><div class="metric-change up">▲ +15.08%</div></div>
+</div>
+<div class="highlight success" style="margin-bottom:16px;"><strong>Cette campagne surperforme nettement son rôle prévu.</strong> Demand Gen est conçu comme un canal awareness et upper-funnel — pourtant SilkHair DGen génère 119 purchase conversions avec un ROAS de 3.14x et un cost/conv de IDR 254,764, soit le cost per conversion le plus efficace de tout le compte. Le CTR s’est amélioré de +15.08% et les clics ont augmenté de +6.79% malgré une baisse des impressions de -7.20% — l’algorithme qualifie mieux l’audience. Cette campagne mérite un investissement prioritaire et un focus créatif en mai.</div>
+<div class="subsection-title" style="font-size:13px;margin-top:20px;">5 Ad groups — répartition des performances d’avril</div>
+<table style="margin-bottom:16px;">
+<thead><tr><th>Ad group</th><th>Format</th><th class="td-right">Clicks</th><th class="td-right">Conv.</th><th class="td-right">Cost/Conv. (IDR)</th><th class="td-right">CTR</th></tr></thead>
+<tbody>
+<tr><td><strong>SilkHair X Quiz — Static</strong></td><td>Image statique</td><td class="td-right">5,849 <span style="color:#138D5A;font-size:11px;">▲+92.91%</span></td><td class="td-right">29.44 <span style="color:#138D5A;font-size:11px;">▲+38.28%</span></td><td class="td-right" style="color:#c0392b;">IDR 356,561 <span style="font-size:11px;">▲+38.49%</span></td><td class="td-right">4.98%</td></tr>
+<tr><td><strong>SilkHair X Listical — Static</strong></td><td>Image statique</td><td class="td-right">5,897 <span style="color:#c0392b;font-size:11px;">▼-19.78%</span></td><td class="td-right">53.88 <span style="color:#c0392b;font-size:11px;">▼-12.73%</span></td><td class="td-right" style="color:#138D5A;">IDR 215,926 <span style="font-size:11px;">▼ en amélioration</span></td><td class="td-right">5.83%</td></tr>
+<tr><td><strong>SilkHair X Advertorial — Video</strong></td><td>Video</td><td class="td-right">219 <span style="color:#c0392b;font-size:11px;">▼-27.48%</span></td><td class="td-right">12.92 <span style="color:#c0392b;font-size:11px;">▼-7.38%</span></td><td class="td-right" style="color:#138D5A;">IDR 185,350 <span style="font-size:11px;">Meilleur cost/conv</span></td><td class="td-right">0.72%</td></tr>
+<tr><td><strong>SilkHair X Quiz — Video</strong></td><td>Video</td><td class="td-right">319 <span style="color:#c0392b;font-size:11px;">▼-13.55%</span></td><td class="td-right">18.04 <span style="color:#c0392b;font-size:11px;">▼-27.29%</span></td><td class="td-right" style="color:#c0392b;">IDR 209,154 <span style="font-size:11px;">▲ en hausse</span></td><td class="td-right">0.64%</td></tr>
+<tr><td><strong>SilkHair X Advertorial — Static</strong></td><td>Image statique</td><td class="td-right">1,425 <span style="color:#c0392b;font-size:11px;">▼-20.08%</span></td><td class="td-right">5.08 <span style="color:#c0392b;font-size:11px;">▼-32.54%</span></td><td class="td-right" style="color:#c0392b;">IDR 415,791 <span style="font-size:11px;">Cost/conv le plus élevé</span></td><td class="td-right">7.13%</td></tr>
+</tbody>
+</table>
+<div class="highlight success" style="margin-top:16px;">Ce qui rend cela particulièrement fort, c’est que DGen est conçu comme un canal awareness upper-funnel — pourtant il transforme le trafic upper-funnel en clients payants bien au-delà des attentes, avec un cost/conv de IDR 254,764, le plus efficace de tout le compte.</div>
+<div class="highlight success"><strong>Ce qui fonctionne et recommandations spécialistes pour mai :</strong><br/><br/>
+      1. <strong>Scaler immédiatement l’angle Quiz Static.</strong> 5,710 clics (+93%), 29.44 conversions — le quiz crée un parcours personnalisé qui réduit la perte d’utilisateurs. Augmenter sa part de budget et demander 2–3 nouvelles variantes créatives avec différents hooks sur le même format quiz.<br/><br/>
+      2. <strong>Scaler Listical Static.</strong> Ad group avec le plus de conversions à 53.88 conversions et un cost/conv en amélioration (-7%). Demander de nouveaux angles listical avec différents focus produits et hooks de headlines.<br/><br/>
+      3. <strong>Scaler les ad groups vidéo avec de nouveaux assets conformes.</strong> Tous les assets refusés ont déjà été mis en pause et supprimés. Malgré une diffusion réduite, les deux ad groups vidéo (Advertorial Video et Quiz Video) ont quand même généré plus de 30 conversions combinées en avril — preuve d’une forte intention audience. Nous demanderons de nouvelles creatives vidéo conformes selon les guidelines du brief créatif et relancerons ces ad groups à pleine capacité.<br/><br/>
+      4. <strong>Framework de test hebdomadaire des hooks (selon la direction de Charles).</strong> Chaque semaine : tester un nouveau hook, garder le body et le CTA constants. Mesurer le CTR pendant les 3 premiers jours, puis itérer. Hooks à tester : curiosity ("Vous ne connaissez pas encore ça ?"), social proof ("25 000 femmes ont adopté cette routine"), problem-led ("Cheveux qui cassent ? Voici pourquoi"), product-led (gros plan texture, sans texte).<br/><br/>
+      5. <strong>Élargir les audience signals.</strong> Ajouter Makeup and Cosmetics in-market (index 7.4x) et Shampoos and Conditioners in-market (index 12.7x depuis les données d’audience Shopping) comme signaux supplémentaires pour donner à l’algorithme plus de converters à apprendre.<br/><br/>
+      6. <strong>Nous évaluerons la séparation de Quiz et Listical en campagnes dédiées en juin</strong> avec des budgets indépendants. Actuellement, ils se partagent le même IDR 1M/jour — les séparer permettra de scaler chacun selon sa performance ROAS individuelle.</div>
+<div class="highlight danger" style="margin-top:14px;"><strong>Assets refusés — contexte et action nécessaire :</strong> En avril, 8 assets vidéo dans les ad groups Advertorial Video et Quiz Video ont été mis en pause après des refus Google pour "Allégations peu fiables" (Unreliable Claims). Assets SilkHair concernés : 255.3, 413.3, 171.3 et 239.3. Raisons de refus : visuels avant/après, promesses basées sur des statistiques ("8 sur 10 en 30 jours"), vocabulaire médical (DHT, follicules) sans certification santé, et hooks sensationnalistes. Un brief détaillé de correction créative a été préparé avec des guidelines spécifiques pour chaque raison de refus. Toutes les ads actuellement diffusées sont approuvées et conformes.</div>
+</div>
+</div>
+<!-- 4. OPTIMISATIONS -->
+<div class="section">
+<div class="section-header"><div class="section-number">4</div><div class="section-title">Optimisations majeures — Avril 2026</div></div>
+<ul style="list-style:none;padding:0;margin:0;">
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>DGen — nouveaux creative assets lancés :</strong> 15+ nouvelles creatives uploadées sur 5 ad groups (static + video), testant 3 angles de landing page — Blog Advertorial, Listical et Quiz.</span></li>
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>DGen — assets vidéo refusés supprimés :</strong> 8 assets vidéo sur les ad groups Advertorial et Quiz supprimés suite à des violations des règles Google (Unreliable Claims). Assets de remplacement conformes lancés immédiatement.</span></li>
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>Brief des refus créatifs préparé :</strong> Brief détaillé couvrant les raisons exactes de refus et les guidelines de correction pour les assets SilkHair 255.3, 413.3, 171.3, 239.3 préparé pour l’équipe créative.</span></li>
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>NB Shopping Produits — hygiène SQR :</strong> 12 competitor negatives ajoutés, 7 negatives en langues étrangères ajoutés, 13 negatives informationnels trop larges supprimés. La Search IS est passée de 19.45% à 37.56%.</span></li>
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>NB Shopping Expansion — hygiène SQR :</strong> Brand negative list appliquée, 12 competitor phrase negatives et 4 exact negatives ajoutés pour améliorer la qualité du trafic.</span></li>
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>NB Search Huile de Batana — optimisation des keywords et des ads :</strong> 9 negatives ajoutés (concurrents + requêtes à intention de recherche). Top headlines épinglés en positions 1 et 2.</span></li>
+<li style="padding:12px 0;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>NB Search Huile de Batana — rafraîchissement de la marque :</strong> Logo business mis à jour et ad copy rafraîchie avec de nouveaux headlines — Routine Repousse Intense, Résultats Visibles en 60 Jours, +30 000 Clientes Ravies.</span></li>
+</ul>
+</div>
+<!-- 5. ISSUES -->
+<div class="section">
+<div class="section-header"><div class="section-number">5</div><div class="section-title">Problèmes rencontrés et actions prises</div></div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-red">Critique</span></div>
+<div class="action-content">
+<div class="action-title">8 assets vidéo refusés — revenus DGen -18%</div>
+<div class="action-desc">Google a refusé 8 vidéos sur les ad groups Advertorial et Quiz (Unreliable Claims : visuels avant/après, promesses basées sur des statistiques, vocabulaire médical). La conv value DGen est passée de IDR 116.7M à IDR 95.6M. Action : mise en pause immédiate le 3 avril, lancement d’ads static de remplacement, brief créatif détaillé envoyé à l’équipe.</div>
+</div>
+</div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-amber">Élevé</span></div>
+<div class="action-content">
+<div class="action-title">Amazon.fr outrank SilkHair 70.65% sur huile de batana</div>
+<div class="action-desc">Amazon à 22.24% IS. tROAS 180% + limitation budget empêchant un bidding compétitif. L’IS a chuté de 80% à 71%. Action : nettoyage SQR réalisé le 21 avril. Augmentation du budget et revue du tROAS prévues pour mai.</div>
+</div>
+</div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-amber">Élevé</span></div>
+<div class="action-content">
+<div class="action-title">Brand Search bridée par la bid strategy — clics -21%</div>
+<div class="action-desc">ROAS en amélioration (15.69x) mais volume en baisse. La campagne ne dépense pas tout son budget. kairly-paris.com est le seul concurrent. Action : revue de la bid strategy prévue pour mai.</div>
+</div>
+</div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-gray">À surveiller</span></div>
+<div class="action-content">
+<div class="action-title">NB Shopping Expansion ROAS at 1.22x</div>
+<div class="action-desc">Premier mois complet (lancée le 25 mars). SQR réalisé le 21 avril. Monitoring pendant 2 semaines supplémentaires avant décision de pause. Pause si le ROAS reste sous 1.0x.</div>
+</div>
+</div>
+</div>
+<!-- CONSOLIDATED ACTION PLAN TABLE -->
+<div class="section">
+<div class="section-header"><div class="section-number" style="background:var(--dark);">★</div><div class="section-title">Plan d’action consolidé — résumé complet</div></div>
+<p style="font-size:13px;color:#555;margin-bottom:16px;">Toutes les actions sont confirmées avec Charles Perot. Ce tableau résume chaque action identifiée dans le rapport complet.</p>
+<div class="subsection-title">Mai 2026 — actions en cours</div>
+<table style="margin-bottom:24px;">
+<thead><tr><th>Priorité</th><th>Action</th><th>Responsable</th><th>Résultat attendu</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">Urgent</span></td><td>Lancer une campagne PMax dédiée pour Batana+</td><td>Diana</td><td>Le produit hero (€51.7k) obtient sa propre campagne — plus grand gap structurel fermé</td></tr>
+<tr><td><span class="badge badge-red">Urgent</span></td><td>Exclure NB Shopping Expansion du nouveau PMax Batana+</td><td>Diana</td><td>Prévenir la cannibalisation entre les campagnes en concurrence sur les mêmes requêtes</td></tr>
+<tr><td><span class="badge badge-red">Urgent</span></td><td>Revoir la bid strategy de Brand Search (passage depuis Manual CPC)</td><td>Diana</td><td>Récupérer le volume de clics perdu (-21%) et le volume de conversions perdu (-11%) liés au bid throttling</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Augmenter le budget NB Search de IDR 3.3M → IDR 4.5–5M/jour</td><td>Diana</td><td>Récupérer la Search IS perdue face à Amazon (qui outrank actuellement 70.65% du temps)</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Baisser le tROAS NB Search de 180% à 150%</td><td>Diana</td><td>Permettre à l’algorithme de bidder plus compétitivement face à Amazon</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Ajouter 6 nouveaux keywords exact match à NB Search</td><td>Diana</td><td>Capter les termes long-tail à forte conversion déjà visibles dans le search terms report</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Augmenter le budget NB Shopping Produits de IDR 2M → IDR 2.8M/jour</td><td>Diana</td><td>La Search IS a doublé à 37.56% après SQR — prêt à scaler sur un trafic propre</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Nettoyage SKU dans NB Shopping Expansion (9 variantes → 1 par item ID)</td><td>Diana</td><td>Supprimer les entrées d’enchères redondantes, affiner le ciblage</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Surveiller le ROAS de NB Shopping Expansion — pause si inférieur à 1.0x fin mai</td><td>Diana</td><td>Évaluation du premier mois complet post-hygiène SQR</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Augmenter le budget DGen + briefs créatifs hebdomadaires au creative strategist</td><td>Diana + équipe créative</td><td>Selon Charles : DGen surperforme — scaler les dépenses et tester plus vite (hook/body/CTA chaque semaine)</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Demander de nouvelles creatives vidéo conformes pour les ad groups Advertorial Video et Quiz Video</td><td>Diana + équipe créative</td><td>Relancer les ad groups vidéo à pleine capacité — cost/conv prouvé à IDR 185,350 et IDR 209,154</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td>Demander une creative spécifique cold audience pour l’ad group Advertorial Static</td><td>Diana + équipe créative</td><td>Hook problem-led pour les utilisateurs sans awareness de la marque — corriger le gap de diffusion cold audience</td></tr>
+<tr><td><span class="badge badge-blue">Moyen</span></td><td>Revoir et optimiser les sitelinks — remplacer Après-Shampoing et Livraison Rapide (ROAS inférieur à 6x)</td><td>Diana</td><td>Améliorer le CTR de Brand Search et l’efficacité de l’espace publicitaire</td></tr>
+<tr><td><span class="badge badge-blue">Moyen</span></td><td>Ajouter de nouvelles variations RSA à Brand Search</td><td>Diana</td><td>Améliorer l’ad strength et la diffusion</td></tr>
+<tr><td><span class="badge badge-blue">Moyen</span></td><td>Ajouter un bid adjustment tablette de -30% sur DGen (0 conversion en avril vs 5 en mars)</td><td>Diana</td><td>Arrêter de gaspiller IDR 795k/mois sur les tablettes avec zéro conversion</td></tr>
+</tbody>
+</table>
+<div class="subsection-title">Juin 2026 — pipeline</div>
+<table>
+<thead><tr><th>Action</th><th>Raison</th></tr></thead>
+<tbody>
+<tr><td>PMax ou Shopping dédié pour Sérum Batana+ Renaissance</td><td>Croissance de +31% MoM mais mélangé dans NB Shopping sans budget dédié — lui donner sa propre campagne</td></tr>
+<tr><td>Campagne concurrents</td><td>Cibler les keywords de marques concurrentes dans l’espace hair growth (arbuti.com, purepousse, vitalis etc.)</td></tr>
+<tr><td>Campagne Retargeting (Search ou Display)</td><td>Audiences warm qui ont visité mais n’ont pas converti — intention élevée, généralement fort ROAS</td></tr>
+<tr><td>Ad group DGen retargeting (séparé de l’acquisition cold)</td><td>Ad group DGen dédié aux audiences warm avec un angle créatif différent — offre, urgence, social proof</td></tr>
+<tr><td>Expansion DGen — Quiz et Listical en campagnes séparées</td><td>Ils partagent actuellement IDR 1M/jour — la séparation permet un scaling indépendant selon le ROAS</td></tr>
+<tr><td>Evaluate pausing NB Shopping Expansion if ROAS stays under 1.0x</td><td>Évaluation fin mai — si aucune amélioration post-SQR, nous réallouons le budget aux campagnes plus fortes</td></tr>
+</tbody>
+</table>
+</div>
+<!-- SCALING PLAN -->
+<div class="section">
+<div class="section-header"><div class="section-number" style="background:var(--green);">★</div><div class="section-title">Plan de scaling SilkHair</div></div>
+<p style="font-size:13px;color:#555;margin-bottom:20px;">Sur la base des données de performance d’avril, voici la roadmap complète de scaling pour SilkHair avec des recommandations budgétaires spécifiques. À noter que 4 campagnes sur 6 sont actuellement limited by budget — ce qui signifie que chaque euro ou rupiah incrémental investi est utilisé aux niveaux d’efficacité actuels.</p>
+<div class="subsection-title">Scaling budgetaire — campagnes existantes</div>
+<table style="margin-bottom:24px;">
+<thead><tr><th>Campagne</th><th>Budget actuel</th><th>Budget recommandé</th><th>Augmentation</th><th>Raison</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>FR Brand Shopping</strong></td>
+<td>IDR 600k/day</td>
+<td style="color:#138D5A;font-weight:600;">IDR 900k/day</td>
+<td style="color:#138D5A;font-weight:600;">+50%</td>
+<td>ROAS 31.48x, Search IS seulement 21.66% — 78% des impressions Brand Shopping sont encore manquées. Augmentation de budget au risque le plus faible et au rendement le plus élevé du compte.</td>
+</tr>
+<tr>
+<td><strong>FR Brand Search</strong></td>
+<td>IDR 1M/day</td>
+<td style="color:#138D5A;font-weight:600;">IDR 1.5M/day</td>
+<td style="color:#138D5A;font-weight:600;">+50%</td>
+<td>Après le changement de bid strategy, le budget doit augmenter en parallèle pour récupérer les -21% de volume de clics perdus à cause du throttling. ROAS 15.69x rend cette augmentation sûre.</td>
+</tr>
+<tr>
+<td><strong>FR NB Search — Huile de Batana</strong></td>
+<td>IDR 3.3M/day</td>
+<td style="color:#138D5A;font-weight:600;">IDR 4.5–5M/day</td>
+<td style="color:#138D5A;font-weight:600;">+35–50%</td>
+<td>Limited by budget chaque jour. Amazon outrank 70.65% du temps. Chaque IDR incrémental convertit au ROAS actuel de 1.72x. Associé à une réduction du tROAS à 150% pour permettre un bidding plus compétitif.</td>
+</tr>
+<tr>
+<td><strong>FR NB Shopping — Produits</strong></td>
+<td>IDR 2M/day</td>
+<td style="color:#138D5A;font-weight:600;">IDR 2.8M/day</td>
+<td style="color:#138D5A;font-weight:600;">+40%</td>
+<td>La Search IS a doublé à 37.56% après SQR — prêt à scaler sur un trafic propre</td>
+</tr>
+<tr>
+<td><strong>NB Shopping Expansion</strong></td>
+<td>IDR 500k/day</td>
+<td style="color:#9a6800;font-weight:600;">Hold — pas d’augmentation pour le moment</td>
+<td style="color:#9a6800;">—</td>
+<td>Premier mois complet de données. ROAS 1.22x. Nous attendrons la fin mai pour évaluer. Si le ROAS reste sous 1.0x, nous mettons en pause — s’il dépasse 1.5x, nous augmentons à IDR 750k/jour.</td>
+</tr>
+<tr>
+<td><strong>Silkhair DGen FR</strong></td>
+<td>IDR 1M/day</td>
+<td style="color:#138D5A;font-weight:600;">IDR 1.5M/day</td>
+<td style="color:#138D5A;font-weight:600;">+50%</td>
+<td>Selon Charles : DGen surperforme — scaler les dépenses et tester plus vite (hook/body/CTA chaque semaine)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight success">Budget quotidien actuel total sur toutes les campagnes : IDR 8.4M/jour. Avec les augmentations recommandées : IDR 11.7–12.2M/jour. Cela représente un scaling global du compte de +39–45%, entièrement justifié par le statut limited-by-budget de 4 campagnes et les métriques d’efficacité sur le compte.</div>
+<div class="subsection-title" style="margin-top:24px;">Nouvelles campagnes à lancer — Mai 2026</div>
+<table style="margin-bottom:20px;">
+<thead><tr><th>Campagne</th><th>Type</th><th>Budget de départ suggéré</th><th>Raison</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>PMax dédié — Batana+</strong></td>
+<td>Performance Max</td>
+<td style="color:#138D5A;font-weight:600;">IDR 1M/day</td>
+<td>Produit hero (€51.7k Shopify). Démarrer à IDR 1M/jour pour donner à l’algorithme suffisamment de données pour apprendre, puis augmenter à IDR 1.5M après 2–3 semaines si les objectifs ROAS sont atteints (≥ 2.0x). Exclure NB Shopping Expansion pour éviter la cannibalisation.</td>
+</tr>
+</tbody>
+</table>
+<div class="subsection-title">Nouvelles campagnes — pipeline Juin 2026</div>
+<table>
+<thead><tr><th>Campagne</th><th>Type</th><th>Budget de départ suggéré</th><th>Raison</th></tr></thead>
+<tbody>
+<tr><td><strong>PMax ou Shopping — Sérum Batana+ Renaissance</strong></td><td>PMax or Shopping</td><td>IDR 500k/day</td><td>Croissance de +31% MoM mais mélangé dans NB Shopping sans budget dédié — lui donner sa propre campagne</td></tr>
+<tr><td><strong>Campagne concurrents</strong></td><td>Search</td><td>IDR 500k/day</td><td>Cibler les keywords de marques concurrentes dans l’espace hair growth (arbuti.com, purepousse, vitalis etc.)</td></tr>
+<tr><td><strong>Campagne Retargeting</strong></td><td>Search or Display</td><td>IDR 500k/day</td><td>Audiences warm qui ont visité mais n’ont pas converti — intention élevée, généralement fort ROAS</td></tr>
+<tr><td><strong>Ad group DGen retargeting</strong></td><td>Demand Gen</td><td>IDR 500k/day</td><td>Ad group DGen séparé pour audience warm avec creative offre/urgence. Garde les audiences cold et warm indépendantes.</td></tr>
+<tr><td><strong>DGen Quiz + Listical — separate campaigns</strong></td><td>Demand Gen</td><td>IDR 750k/jour chacune</td><td>Partage actuellement IDR 1M/jour. La séparation permet un scaling indépendant — Quiz Static est déjà top performer avec 5,849 clics.</td></tr>
+</tbody>
+</table>
+<div class="highlight info" style="margin-top:16px;">Le scaling DGen est une priorité spécifique signalée par Charles — briefs créatifs hebdomadaires au nouveau creative strategist, avec feedback de performance sur les composants hook/body/CTA et tests d’angles pour trouver plus vite les combinaisons gagnantes.</div>
+</div>
+<!-- 7. CREATIVE BRIEF -->
+<div class="section">
+<div class="section-header"><div class="section-number">7</div><div class="section-title">Brief créatif — Mai 2026</div></div>
+<p style="font-size:13px;color:#555;margin-bottom:20px;">Préparé mensuellement et partagé avec le creative strategist. Couvre le statut des assets, les nouveaux angles à tester et les spécifications de formats. Basé sur des données de performance réelles.</p>
+<div class="subsection">
+<div class="subsection-title">Assets refusés — détail des refus et directives de correction</div>
+<table style="margin-bottom:16px;">
+<thead><tr><th>Asset</th><th>Raison du refus</th><th>Statut</th></tr></thead>
+<tbody>
+<tr><td><strong>255.3</strong></td><td>Visuel avant/après — transformation dramatique classée comme trompeuse</td><td><span class="badge badge-red">Mis en pause et supprimé</span></td></tr>
+<tr><td><strong>413.3</strong></td><td>Promesses de résultats et claims basés sur des statistiques ("8 sur 10 en 30 jours")</td><td><span class="badge badge-red">Mis en pause et supprimé</span></td></tr>
+<tr><td><strong>171.3</strong></td><td>Hook sensationnaliste — classé comme clickbait</td><td><span class="badge badge-red">Mis en pause et supprimé</span></td></tr>
+<tr><td><strong>239.3</strong></td><td>Vocabulaire médical sans certification de professionnel de santé</td><td><span class="badge badge-red">Mis en pause et supprimé</span></td></tr>
+</tbody>
+</table>
+<div class="highlight danger" style="margin-bottom:20px;"><strong>Règles pour toutes les nouvelles creatives vidéo SilkHair :</strong>
+<ul style="margin-top:8px;margin-left:20px;font-size:13px;">
+<li style="margin-bottom:5px;"><strong>Ne jamais utiliser :</strong> visuels avant/après — langage "miracle" ou "30 jours" — DHT, follicules, dermatologues — hooks sensationnalistes ("J’ai perdu trois ans", "Ma sœur croit que j’ai fait une greffe") — claims statistiques ("8 sur 10")</li>
+<li style="margin-bottom:5px;"><strong>Utiliser plutôt :</strong> "nourrissant", "soin", "renforçateur" — "utilisation régulière dans votre routine" — focus sur la texture et l’application — disclaimer à l’écran : "Les résultats peuvent varier d’une personne à l’autre"</li>
+<li style="margin-bottom:0px;"><strong>Formats nécessaires en urgence :</strong> Vidéo verticale 9:16 (1080×1920) pour YouTube et Discover — Static carré 1:1 (1080×1080) — Static horizontal 2048×1250 — Static vertical 1152×2048 — Images produit uniquement sans texte superposé</li>
+</ul>
+</div>
+<div class="subsection-title">SilkHair — statut des assets</div>
+<div class="creative-row header"><div>Asset / angle</div><div>Format</div><div>Statut</div><div>Notes</div></div>
+<div class="creative-row"><div>Quiz Static — "1 acheté = 1 offert"</div><div>Image statique</div><div><span class="badge badge-green">Top performer</span></div><div>5,710 clics (+93%), 29.44 conversions — le quiz crée un parcours personnalisé qui réduit la perte d’utilisateurs. Augmenter sa part de budget et demander 2–3 nouvelles variantes créatives avec différents hooks sur le même format quiz.</div></div>
+<div class="creative-row"><div>Listical Static</div><div>Image statique</div><div><span class="badge badge-amber">Faible diffusion</span></div><div>Faible conversion. Tester un nouveau hook — focus sur la texture du produit plutôt que sur les résultats.</div></div>
+<div class="creative-row"><div>Advertorial Static</div><div>Image statique</div><div><span class="badge badge-amber">Faible diffusion</span></div><div>Visiteurs du site exclus. Ciblage uniquement de nouvelles audiences.</div></div>
+</div>
+<div class="subsection">
+<div class="subsection-title">Nouveaux angles à tester en mai</div>
+<table>
+<thead><tr><th>Angle</th><th>Type de hook</th><th>Format nécessaire</th><th>Raison</th></tr></thead>
+<tbody>
+<tr><td>Transformation de la texture des cheveux — axée sur l’expérience, sans claims</td><td>Sensoriel / ressenti</td><td>Vertical 9:16 + Static 1:1</td><td>Remplace les avant/après refusés. Focus sur le ressenti des cheveux.</td></tr>
+<tr><td>"Ma routine du soir" — rituel du soir</td><td>Lifestyle / routine</td><td>Vidéo verticale 9:16 (1080×1920) pour YouTube et Discover — Static carré 1:1 (1080×1080) — Static horizontal 2048×1250 — Static vertical 1152×2048 — Images produit uniquement sans texte superposé</td><td>Beauty Mavens + Fashionistas = 38-45% de part de conversions. Le contenu routine résonne.</td></tr>
+<tr><td>Social proof — vraie histoire cliente (sans claims)</td><td>Témoignage style UGC</td><td>Vidéo verticale 9:16 (1080×1920) pour YouTube et Discover — Static carré 1:1 (1080×1080) — Static horizontal 2048×1250 — Static vertical 1152×2048 — Images produit uniquement sans texte superposé</td><td>Remplacer les claims statistiques par une narration authentique. Disclaimer : résultats peuvent varier.</td></tr>
+<tr><td>Visuels produit propres — sans texte superposé</td><td>Visuel produit esthétique</td><td>2048×1250 + 1152×2048</td><td>Nécessaire pour Shopping et DGen static, comme demandé précédemment.</td></tr>
+<tr><td>Sérum Batana+ Renaissance — creative dédiée</td><td>Focus produit</td><td>Static 1:1 + Vertical video</td><td>Croissance de +31%, mais sans creative DGen dédiée.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="subsection">
+<div class="subsection-title">Conformité aux règles Google — rappels</div>
+<div class="highlight danger"><strong>Never include:</strong> Visuels avant/après côte à côte — langage "miracle" ou "results in 30 days" — DHT, follicules, micro-infusion, dermatologue sans certification santé — hooks sensationnalistes — claims statistiques ("8 sur 10").</div>
+<div class="highlight success"><strong>Utiliser plutôt :</strong> "nourrissant", "soin", "renforçateur" — "utilisation régulière dans votre routine" — focus sur la texture et l’application — disclaimer à l’écran : "Les résultats peuvent varier d’une personne à l’autre"</div>
+</div>
+<div class="subsection">
+<div class="subsection-title">Spécifications de formats nécessaires</div>
+<table>
+<thead><tr><th>Format</th><th>Dimensions</th><th>Utilisé pour</th><th class="td-center">Priorité</th></tr></thead>
+<tbody>
+<tr><td>Vidéo verticale</td><td>9:16 (1080×1920)</td><td>DGen YouTube, Discover</td></tr>
+<tr><td>Static carré</td><td>1:1 (1080×1080)</td><td>DGen Discover, Gmail</td></tr>
+<tr><td>Static horizontal</td><td>2048×1250</td><td>DGen, Shopping banner</td></tr>
+<tr><td>Static vertical</td><td>1152×2048</td><td>DGen vertical placement</td></tr>
+<tr><td>Image produit uniquement (sans texte)</td><td>1:1 + horizontal</td><td>Shopping feed, PMax</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 8. ROAS TARGETS -->
+<div class="section">
+<div class="section-header"><div class="section-number">8</div><div class="section-title">Objectifs ROAS — Mai 2026</div></div>
+<p style="font-size:13px;color:#555;margin-bottom:16px;">Premiers objectifs ROAS formellement définis pour le compte SilkHair. Comme ce rapport est émis le 19 mai 2026, les objectifs ci-dessous reflètent la direction vers laquelle nous travaillons pour le reste du mois de mai. Ils serviront de baseline complète pour juin, où nous aurons un mois complet pour les atteindre.</p>
+<table>
+<thead><tr><th>Campagne</th><th class="td-right">Réel avril</th><th class="td-right">Objectif mai</th><th>Raison</th></tr></thead>
+<tbody>
+<tr><td>FR Brand Shopping</td><td class="td-right">31.48x</td><td class="td-right" style="color:#138D5A;font-weight:700;">≥ 25x</td><td>Maintenir l’efficacité tout en augmentant l’impression share</td></tr>
+<tr><td>FR Brand Search</td><td class="td-right">15.69x</td><td class="td-right" style="color:#138D5A;font-weight:700;">≥ 12x</td><td>Le correctif de bidding peut échanger une partie de l’efficacité contre une récupération du volume</td></tr>
+<tr><td>FR NB Search — Huile de Batana</td><td class="td-right">1.70x</td><td class="td-right" style="color:#9a6800;font-weight:700;">≥ 1.75x</td><td>Augmentation du budget + ajustement du tROAS pour récupérer l’IS face à Amazon</td></tr>
+<tr><td>FR NB Shopping — Produits</td><td class="td-right">1.41x</td><td class="td-right" style="color:#9a6800;font-weight:700;">≥ 1.50x</td><td>Poursuite de l’hygiène SQR et de l’optimisation du feed</td></tr>
+<tr><td>NB Shopping — Expansion</td><td class="td-right">1.22x</td><td class="td-right" style="color:#9a6800;font-weight:700;">≥ 1.50x</td><td>Premier mois d’évaluation complet post-SQR. Pause si le ROAS reste sous 1.0x.</td></tr>
+<tr><td>Silkhair DGen FR</td><td class="td-right">3.14x</td><td class="td-right" style="color:#138D5A;font-weight:700;">≥ 1.80x</td><td>DGen est un canal top-of-funnel — au-dessus de 1.8x, c’est déjà excellent. La performance actuelle à 3.14x est exceptionnelle et reflète un volume faible. À mesure que nous scalerons les dépenses et toucherons des audiences plus larges, le ROAS diminuera naturellement tandis que les revenus et le profit totaux augmenteront. L’objectif est le volume à un ROAS profitable, pas le ROAS maximal à faible volume.</td></tr>
+<tr><td>Nouveau PMax — Batana+ (nouveau)</td><td class="td-right">N/A</td><td class="td-right" style="color:#0085F7;font-weight:700;">≥ 2.00x</td><td>Objectif de période d’apprentissage pour le premier mois du nouveau PMax</td></tr>
+</tbody>
+</table>
+</div>
+<!-- FOOTER -->
+<!-- THANK YOU PAGE -->
+<div class="section" style="text-align:center;padding:60px 40px;background:var(--dark);border-radius:12px;margin-bottom:24px;">
+<div style="margin-bottom:32px;">
+<div style="width:60px;height:60px;position:relative;margin:0 auto 16px;">
+<div style="position:absolute;width:60px;height:60px;border-radius:50%;border:7px solid #0085F7;border-bottom-color:transparent;transform:rotate(-30deg);"></div>
+<div style="position:absolute;width:40px;height:40px;top:10px;left:10px;border-radius:50%;border:6px solid #138D5A;border-top-color:transparent;transform:rotate(30deg);"></div>
+<div style="position:absolute;width:20px;height:20px;top:20px;left:20px;border-radius:50%;background:#F8B83A;"></div>
+</div>
+<div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:2px;text-transform:uppercase;">Katchingg Media</div>
+<div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:4px;">Google Ads pour eCom</div>
+</div>
+<h2 style="font-size:28px;font-weight:700;color:#ffffff;margin-bottom:12px;">Merci pour votre confiance</h2>
+<p style="font-size:14px;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 32px;line-height:1.7;">Ce rapport a été préparé avec soin et attention à chaque data point. Nous sommes pleinement engagés dans la croissance du compte SilkHair et avons hâte de partager les résultats de mai.</p>
+<div style="display:flex;justify-content:center;gap:0;max-width:400px;margin:0 auto;">
+<div style="flex:1;padding:20px;background:rgba(255,255,255,0.05);border-radius:8px 0 0 8px;border-right:1px solid rgba(255,255,255,0.08);">
+<div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.35);margin-bottom:6px;">Préparé par</div>
+<div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.8);">Diana</div>
+<div style="font-size:12px;color:rgba(255,255,255,0.35);">Media Buyer</div>
+</div>
+<div style="flex:1;padding:20px;background:rgba(255,255,255,0.05);border-radius:0 8px 8px 0;">
+<div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.35);margin-bottom:6px;">Révisé par</div>
+<div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.8);">Charles Perot</div>
+<div style="font-size:12px;color:rgba(255,255,255,0.35);">Manager, Katchingg Media</div>
+</div>
+</div>
+<div style="margin-top:32px;height:4px;border-radius:2px;background:linear-gradient(90deg,#0085F7 0%,#138D5A 50%,#F8B83A 100%);max-width:200px;margin-left:auto;margin-right:auto;"></div>
+</div>
+</div>
+<script>
+new Chart(document.getElementById('roasChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Brand Shopping','Brand Search','NB Search','NB Shopping','Expansion','DGen'],
+    datasets: [
+      { label: 'Avril 2026 — Conv. Value (IDR M)', data: [275.2, 227.0, 147.9, 85.8, 15.2, 95.6], backgroundColor: '#0085F7', borderRadius: 4 },
+      { label: 'Mars 2026 — Conv. Value (IDR M)', data: [136.0, 235.0, 146.7, 80.9, 8.6, 116.7], backgroundColor: '#c8c6be', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: IDR ${ctx.parsed.y.toFixed(1)}M` } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#888', maxRotation: 20 } },
+      y: { type: 'logarithmic', grid: { color: '#f0ede8' },
+           ticks: { font: { size: 11 }, color: '#888', callback: v => 'IDR ' + v + 'M' },
+           title: { display: true, text: 'Conv. Value (IDR M) — échelle log', font: { size: 11 }, color: '#aaa' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
